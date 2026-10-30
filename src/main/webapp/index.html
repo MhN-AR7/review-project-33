@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review</title>
+</head>
+<body>
+<button id="load-data-btn">Load user infos</button>
+<ul id="user-info-list">
+</ul>
+<script>
+    let loadDataBtn = document.getElementById("load-data-btn");
+    let userInfoList = document.getElementById("user-info-list");
+
+    function loadDataAction() {
+        fetch("http://localhost:8080/review_project/userinfo", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"}
+        })
+            .then(response => {
+                console.log(response.status);
+                return response.json();
+            })
+            .then(data => {
+                    console.log(data);
+                    for (let i = 0; i < data.length; i++) {
+                        let li = document.createElement("li");
+                        li.innerText = data[i].username;
+                        userInfoList.appendChild(li);
+                    }
+                }
+            )
+    }
+
+    loadDataBtn.addEventListener("click", loadDataAction)
+</script>
+</body>
+</html>

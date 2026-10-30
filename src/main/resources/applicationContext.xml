@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userInfoRepository" class="ir.intellij.reviewproject.repository.UserInfoRepository"/>
+
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
+
+    <bean id="userInfoService" class="ir.intellij.reviewproject.service.UserInfoService">
+        <constructor-arg ref="userInfoRepository"/>
+    </bean>
+
+
+
+</beans>

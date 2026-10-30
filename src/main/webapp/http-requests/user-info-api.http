@@ -1,0 +1,17 @@
+POST localhost:8080/project_review/userinfo
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "password": "john@doe!",
+  "age": 34,
+  "name": "John Doe"
+}
+
+###
+
+GET localhost:8080/review_project/userinfo
+Content-Type: application/json
+
+###
+
